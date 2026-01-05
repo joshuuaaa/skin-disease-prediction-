@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Skin AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="main-layout">
+        <header>
+            <div class="container nav-content">
+                <div class="logo">
+                    <i class="fas fa-microscope"></i> Skin AI
+                </div>
+                <div class="user-menu">
+                    <span id="userEmail" style="margin-right: 1rem; color: var(--text-secondary);"></span>
+                    <button onclick="logout()" class="btn btn-secondary"
+                        style="width: auto; padding: 0.5rem 1rem; font-size: 0.9rem;">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="container" style="flex: 1;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="text-center mb-4">
+                    <h1 style="margin-bottom: 0.5rem;">Skin Lesion Analysis</h1>
+                    <p style="color: var(--text-secondary);">Upload a clear photo of the skin lesion for AI-powered
+                        assessment.</p>
+                </div>
+
+                <div class="card">
+                    <div id="uploadArea" class="upload-area" onclick="document.getElementById('fileInput').click()">
+                        <input type="file" id="fileInput" hidden accept="image/*" onchange="handleFileSelect(event)">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3>Click or drag image to upload</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Supports JPG,
+                            PNG (Max 5MB)</p>
+                    </div>
+                </div>
+
+                <div id="loading" class="text-center mt-4 hidden">
+                    <div style="font-size: 2rem; color: var(--primary-color);">
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                    </div>
+                    <p class="mt-4">Analyzing image...</p>
+                </div>
+
+                <div id="resultContainer" class="result-container">
+                    <div class="card result-card">
+                        <div class="result-image">
+                            <!-- Image preview -->
+                            <img id="previewImage" src="" alt="Uploaded Image">
+                        </div>
+                        <div class="prediction-details">
+                            <h3>Assessment Result</h3>
+                            <div class="prediction-value" id="predictionLabel"></div>
+
+                            <h3>Confidence Score</h3>
+                            <div class="confidence-bar">
+                                <div id="confidenceFill" class="confidence-fill"></div>
+                            </div>
+                            <div style="text-align: right; color: var(--text-secondary); font-size: 0.9rem;"
+                                id="confidenceText"></div>
+                        </div>
+                    </div>
+
+                    <div class="disclaimer">
+                        <i class="fas fa-exclamation-triangle" style="margin-top: 0.2rem;"></i>
+                        <div>
+                            <strong>Medical Disclaimer:</strong>
+                            <p id="disclaimerText"></p>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button onclick="resetUpload()" class="btn btn-secondary" style="width: auto;">Analyze Another
+                            Image</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Check auth on load
+        if (!localStorage.getItem('token')) {
+            window.location.href = 'index.html';
+        } else {
+            // Decode token roughly or fetch user profile if endpoint existed
+            // For simple jwt, we can just start
+        }
+    </script>
+</body>
+
+</html>
