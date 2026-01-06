@@ -42,7 +42,7 @@ def preprocess_image(img_path):
 def predict_single_image(img_path):
     model = load_inference_model()
     if model is None:
-        return "Model not trained yet", 0.0
+        return "Model not available - please contact admin to train the model", 0.0
     
     processed_img = preprocess_image(img_path)
     predictions = model.predict(processed_img)
