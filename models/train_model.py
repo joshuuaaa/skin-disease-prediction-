@@ -12,8 +12,8 @@ import gc
 
 # Configuration
 IMG_SIZE = (224, 224)
-BATCH_SIZE = 8 # Keep small
-EPOCHS = 10
+BATCH_SIZE = 32 # Keep small
+EPOCHS = 18
 LEARNING_RATE = 0.0001
 DATASET_CSV_PATH = r"c:\Users\joshu\OneDrive\Documents\skin disese\dataset\balanced_dataset\balanced_dataset\balanced_dataset.csv"
 DATASET_ROOT_DIR = r"c:\Users\joshu\OneDrive\Documents\skin disese\dataset\balanced_dataset\balanced_dataset"

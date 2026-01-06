@@ -2,6 +2,9 @@ from fastapi import APIRouter, UploadFile, File, HTTPException
 import shutil
 import os
 import uuid
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from models import model_utils
 
 router = APIRouter()

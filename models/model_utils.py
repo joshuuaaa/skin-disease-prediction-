@@ -4,8 +4,9 @@ import numpy as np
 import os
 import json
 
-MODEL_PATH = r"c:\Users\joshu\OneDrive\Documents\skin disese\models\skin_disease_model.h5"
-CLASS_INDICES_PATH = r"c:\Users\joshu\OneDrive\Documents\skin disese\models\class_indices.json"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "skin_disease_model.h5")
+CLASS_INDICES_PATH = os.path.join(BASE_DIR, "class_indices.json")
 
 _model = None
 _classes = None
